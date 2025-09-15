@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#4f46e5;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;background:linear-gradient(180deg,#071026 0%, #071827 100%);color:#e6eef8}
+    .container{max-width:1000px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    h1{font-size:28px;margin:0}
+    nav{display:flex;gap:12px}
+    .btn{background:var(--glass);padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;text-decoration:none;color:inherit;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:#fff;border:none;box-shadow:0 6px 18px rgba(79,70,229,0.18)}
+    main{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .fields{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:var(--muted)}
+    .value{background:transparent;border:1px dashed rgba(255,255,255,0.04);padding:10px;border-radius:8px;min-height:40px}
+    .meta{font-size:13px;color:var(--muted);margin-top:8px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .sidebar .card{position:sticky;top:24px}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    a.anchor{color:var(--accent);text-decoration:none}
+    .pdf-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .pdf-item{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
+    .pdf-item a{color:#fff;text-decoration:none;font-size:14px}
+    @media (max-width:900px){main{grid-template-columns:1fr;}.sidebar{order:2}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</h1>
+        <div class="meta">صفحه رسمی گواهی — مناسب قرارگیری در مخزن GitHub</div>
+      </div>
+      <nav>
+        <a class="btn" href="#" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">دانلود</a>
+        <a class="btn primary" href="#رمزپول-فردا">رمزپول فردا</a>
+        <a class="btn" href="#رمزپول-آینده">رمزپول آینده</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content">
+        <article class="card">
+          <h2 id="رمزپول-فردا">رمزپول فردا</h2>
+          <p class="meta">در این بخش اطلاعات گواهی "رمزپول فردا" را وارد کنید. قالب پیشنهادی پایین آمده است.</p>
+
+          <div class="fields" style="margin-top:12px">
+            <div>
+              <label>تاریخ صدور</label>
+              <div class="value" contenteditable>مثال: 2025-09-15</div>
+            </div>
+
+            <div>
+              <label>شناسه گواهی</label>
+              <div class="value" contenteditable>مثال: RF-20250915-0001</div>
+            </div>
+
+            <div>
+              <label>آدرس کیف پول</label>
+              <div class="value" contenteditable>مثال: 0x... </div>
+            </div>
+
+            <div>
+              <label>مقدار اثبات‌شده</label>
+              <div class="value" contenteditable>مثال: 1000 TOKEN</div>
+            </div>
+
+            <div>
+              <label>امضاء صادرکننده</label>
+              <div class="value" contenteditable>مثال: SIG(issuer_pubkey)</div>
+            </div>
+
+            <div>
+              <label>اسناد PDF مرتبط</label>
+              <div class="pdf-list">
+                <div class="pdf-item"><span>سند شماره ۱</span><a href="docs/doc1.pdf" target="_blank">نمایش / دانلود</a></div>
+                <div class="pdf-item"><span>سند شماره ۲</span><a href="docs/doc2.pdf" target="_blank">نمایش / دانلود</a></div>
+                <div class="pdf-item"><span>سند شماره ۳</span><a href="docs/doc3.pdf" target="_blank">نمایش / دانلود</a></div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" onclick="copySection(this)">کپی بخش</button>
+              <button class="btn primary" onclick="exportSection('رمزپول-فردا')">صادرات به HTML</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:16px">
+          <h2 id="رمزپول-آینده">رمزپول آینده</h2>
+          <p class="meta">قالب مشابه بخش بالا برای گواهی "رمزپول آینده".</p>
+
+          <div class="fields" style="margin-top:12px">
+            <div>
+              <label>تاریخ صدور</label>
+              <div class="value" contenteditable>مثال: 2025-10-01</div>
+            </div>
+
+            <div>
+              <label>شناسه گواهی</label>
+              <div class="value" contenteditable>مثال: RA-20251001-0001</div>
+            </div>
+
+            <div>
+              <label>آدرس کیف پول</label>
+              <div class="value" contenteditable>مثال: 0x... </div>
+            </div>
+
+            <div>
+              <label>مقدار اثبات‌شده</label>
+              <div class="value" contenteditable>مثال: 500 TOKEN</div>
+            </div>
+
+            <div>
+              <label>امضاء صادرکننده</label>
+              <div class="value" contenteditable>مثال: SIG(issuer_pubkey)</div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" onclick="copySection(this)">کپی بخش</button>
+              <button class="btn primary" onclick="exportSection('رمزپول-آینده')">صادرات به HTML</button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3>خلاصه گواهی</h3>
+          <p class="meta">نمای کلی و داده‌های کلیدی را اینجا نگه دارید. این بخش برای چاپ سریع یا نمایش خلاصه در پروفایل repo مفید است.</p>
+
+          <ul style="margin-top:12px;line-height:1.8">
+            <li><strong>عنوان:</strong> گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</li>
+            <li><strong>بخش‌ها:</strong> رمزپول فردا / رمزپول آینده</li>
+            <li><strong>قالب:</strong> HTML + Markdown</li>
+          </ul>
+
+          <div class="actions" style="margin-top:12px">
+            <button class="btn primary" onclick="downloadREADME()">دانلود README</button>
+            <button class="btn" onclick="window.print()">چاپ</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <div id="download" style="margin-top:18px"></div>
+
+    <footer>
+      ساخته شده با ♥ — شما می‌توانید این فایل را کپی، ویرایش و در GitHub بارگذاری کنید.
+    </footer>
+  </div>
+
+  <script>
+    function copySection(btn){
+      const section = btn.closest('.card');
+      const text = Array.from(section.querySelectorAll('.value')).map(e=>e.innerText.trim()).join('\n');
+      navigator.clipboard?.writeText(text).then(()=>{btn.innerText='کپی شد';setTimeout(()=>btn.innerText='کپی بخش',1200)}).catch(()=>alert('کپی ناموفق'));
+    }
+
+    function exportSection(id){
+      const el = document.getElementById(id);
+      if(!el) return alert('بخش پیدا نشد');
+      const parent = el.closest('article');
+      const html = `<!doctype html><html lang=\"fa\" dir=\"rtl\"><head><meta charset=\"utf-8\"><title>${el.innerText}</title></head><body> ${parent.innerHTML} </body></html>`;
+      const blob = new Blob([html],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = id + '.html'; a.click(); URL.revokeObjectURL(url);
+    }
+
+    function downloadREADME(){
+      const content = `# گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات\n\n- رمزپول فردا\n- رمزپول آینده\n\n(این README از نسخه HTML تولید شده است)`;
+      const blob = new Blob([content],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'README.md'; a.click(); URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
