@@ -1,184 +1,479 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</title>
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#4f46e5;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
-    html,body{height:100%;margin:0;font-family:Tahoma, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;background:linear-gradient(180deg,#071026 0%, #071827 100%);color:#e6eef8}
-    .container{max-width:1000px;margin:36px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-    h1{font-size:28px;margin:0}
-    nav{display:flex;gap:12px}
-    .btn{background:var(--glass);padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;text-decoration:none;color:inherit;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:#fff;border:none;box-shadow:0 6px 18px rgba(79,70,229,0.18)}
-    main{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .fields{display:flex;flex-direction:column;gap:12px}
-    label{font-size:13px;color:var(--muted)}
-    .value{background:transparent;border:1px dashed rgba(255,255,255,0.04);padding:10px;border-radius:8px;min-height:40px}
-    .meta{font-size:13px;color:var(--muted);margin-top:8px}
-    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .sidebar .card{position:sticky;top:24px}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-    a.anchor{color:var(--accent);text-decoration:none}
-    .pdf-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-    .pdf-item{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
-    .pdf-item a{color:#fff;text-decoration:none;font-size:14px}
-    @media (max-width:900px){main{grid-template-columns:1fr;}.sidebar{order:2}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اثبات اندوخته - شبیه ByBit</title>
+    <style>
+        :root {
+            --primary: #1e1e2d;
+            --secondary: #2a2a3c;
+            --accent: #00c087;
+            --text-primary: #ffffff;
+            --text-secondary: #9292a6;
+            --border: #363649;
+            --card-bg: #252538;
+            --positive: #00c087;
+            --negative: #f6465d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--text-primary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .net-worth {
+            color: var(--positive);
+        }
+        
+        .claimable {
+            color: var(--text-secondary);
+        }
+        
+        .total-assets {
+            color: var(--positive);
+        }
+        
+        .total-debts {
+            color: var(--text-secondary);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .view-all {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .allocation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .allocation-item:last-child {
+            border-bottom: none;
+        }
+        
+        .token-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .token-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .token-name {
+            font-weight: bold;
+        }
+        
+        .token-amount {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: left;
+            min-width: 120px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        .farda-progress {
+            width: 37.78%;
+            background-color: #26a17b;
+        }
+        
+        .btc-progress {
+            width: 21.52%;
+            background-color: #f7931a;
+        }
+        
+        .usdc-progress {
+            width: 16.36%;
+            background-color: #2775ca;
+        }
+        
+        .eth-progress {
+            width: 11.08%;
+            background-color: #627eea;
+        }
+        
+        .bit-progress {
+            width: 4.99%;
+            background-color: #ff6600;
+        }
+        
+        .others-progress {
+            width: 8.28%;
+            background-color: var(--text-secondary);
+        }
+        
+        .protocol-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .protocol-item:last-child {
+            border-bottom: none;
+        }
+        
+        .protocol-name {
+            font-weight: bold;
+        }
+        
+        .file-count {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .full-analytics {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .currency-symbol {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin-left: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+            
+            .token-amount {
+                min-width: 100px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .header-content {
+                align-items: flex-start;
+                width: 100%;
+            }
+            
+            .allocation-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .token-amount {
+                text-align: right;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div>
-        <h1>گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</h1>
-        <div class="meta">صفحه رسمی گواهی — مناسب قرارگیری در مخزن GitHub</div>
-      </div>
-      <nav>
-        <a class="btn" href="#" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">دانلود</a>
-        <a class="btn primary" href="#رمزپول-فردا">رمزپول فردا</a>
-        <a class="btn" href="#رمزپول-آینده">رمزپول آینده</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="content">
-        <article class="card">
-          <h2 id="رمزپول-فردا">رمزپول فردا</h2>
-          <p class="meta">در این بخش اطلاعات گواهی "رمزپول فردا" را وارد کنید. قالب پیشنهادی پایین آمده است.</p>
-
-          <div class="fields" style="margin-top:12px">
-            <div>
-              <label>تاریخ صدور</label>
-              <div class="value" contenteditable>مثال: 2025-09-15</div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">اثبات اندوخته</div>
+                <div class="subtitle">شبکه تبادل اطلاعات توزیع شده</div>
             </div>
-
-            <div>
-              <label>شناسه گواهی</label>
-              <div class="value" contenteditable>مثال: RF-20250915-0001</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Portfolio</a></li>
+                    <li><a href="#">ShatatScan</a></li>
+                    <li><a href="#">توکن ها</a></li>
+                    <li><a href="#">سپیدنامه</a></li>
+                    <li><a href="#">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div>NET WORTH</div>
+                <div class="stat-value net-worth">۷۱,۸۶۲,۵۴۳,۸۲۳,۵۰۰<span class="currency-symbol">﷼</span></div>
+                <div>ارزش کل سپرده ملکی</div>
             </div>
-
-            <div>
-              <label>آدرس کیف پول</label>
-              <div class="value" contenteditable>مثال: 0x... </div>
+            <div class="stat-card">
+                <div>CLAMABLE</div>
+                <div class="stat-value claimable">۴,۵۰۰,۰۰۰,۰۰۰</div>
+                <div>تعداد کل توکن</div>
             </div>
-
-            <div>
-              <label>مقدار اثبات‌شده</label>
-              <div class="value" contenteditable>مثال: 1000 TOKEN</div>
+            <div class="stat-card">
+                <div>TOTAL ASSETS</div>
+                <div class="stat-value total-assets">۳,۸۰۰,۰۰۰,۰۰۰</div>
+                <div>تعداد توکن قابل معامله</div>
             </div>
-
-            <div>
-              <label>امضاء صادرکننده</label>
-              <div class="value" contenteditable>مثال: SIG(issuer_pubkey)</div>
+            <div class="stat-card">
+                <div>TOTAL DEBTS</div>
+                <div class="stat-value total-debts">۱۲۴</div>
+                <div>تعداد دفعات تغییر در دارایی ها</div>
             </div>
-
-            <div>
-              <label>اسناد PDF مرتبط</label>
-              <div class="pdf-list">
-                <div class="pdf-item"><span>سند شماره ۱</span><a href="docs/doc1.pdf" target="_blank">نمایش / دانلود</a></div>
-                <div class="pdf-item"><span>سند شماره ۲</span><a href="docs/doc2.pdf" target="_blank">نمایش / دانلود</a></div>
-                <div class="pdf-item"><span>سند شماره ۳</span><a href="docs/doc3.pdf" target="_blank">نمایش / دانلود</a></div>
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="btn" onclick="copySection(this)">کپی بخش</button>
-              <button class="btn primary" onclick="exportSection('رمزپول-فردا')">صادرات به HTML</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" style="margin-top:16px">
-          <h2 id="رمزپول-آینده">رمزپول آینده</h2>
-          <p class="meta">قالب مشابه بخش بالا برای گواهی "رمزپول آینده".</p>
-
-          <div class="fields" style="margin-top:12px">
-            <div>
-              <label>تاریخ صدور</label>
-              <div class="value" contenteditable>مثال: 2025-10-01</div>
-            </div>
-
-            <div>
-              <label>شناسه گواهی</label>
-              <div class="value" contenteditable>مثال: RA-20251001-0001</div>
-            </div>
-
-            <div>
-              <label>آدرس کیف پول</label>
-              <div class="value" contenteditable>مثال: 0x... </div>
-            </div>
-
-            <div>
-              <label>مقدار اثبات‌شده</label>
-              <div class="value" contenteditable>مثال: 500 TOKEN</div>
-            </div>
-
-            <div>
-              <label>امضاء صادرکننده</label>
-              <div class="value" contenteditable>مثال: SIG(issuer_pubkey)</div>
-            </div>
-
-            <div class="actions">
-              <button class="btn" onclick="copySection(this)">کپی بخش</button>
-              <button class="btn primary" onclick="exportSection('رمزپول-آینده')">صادرات به HTML</button>
-            </div>
-          </div>
-        </article>
-
-      </section>
-
-      <aside class="sidebar">
-        <div class="card">
-          <h3>خلاصه گواهی</h3>
-          <p class="meta">نمای کلی و داده‌های کلیدی را اینجا نگه دارید. این بخش برای چاپ سریع یا نمایش خلاصه در پروفایل repo مفید است.</p>
-
-          <ul style="margin-top:12px;line-height:1.8">
-            <li><strong>عنوان:</strong> گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات</li>
-            <li><strong>بخش‌ها:</strong> رمزپول فردا / رمزپول آینده</li>
-            <li><strong>قالب:</strong> HTML + Markdown</li>
-          </ul>
-
-          <div class="actions" style="margin-top:12px">
-            <button class="btn primary" onclick="downloadREADME()">دانلود README</button>
-            <button class="btn" onclick="window.print()">چاپ</button>
-          </div>
         </div>
-      </aside>
-    </main>
+        
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Token Allocation</div>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">F</div>
+                        <div>
+                            <div class="token-name">Farda Coin</div>
+                            <div class="progress-bar">
+                                <div class="progress farda-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۷۲۰,۰۰۰,۰۰۰ Farda</div>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">B</div>
+                        <div>
+                            <div class="token-name">BTC</div>
+                            <div class="progress-bar">
+                                <div class="progress btc-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۴,۲۵۰ BTC</div>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">U</div>
+                        <div>
+                            <div class="token-name">USDC</div>
+                            <div class="progress-bar">
+                                <div class="progress usdc-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۳۱۲,۵۰۰,۰۰۰ USDC</div>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">E</div>
+                        <div>
+                            <div class="token-name">ETH</div>
+                            <div class="progress-bar">
+                                <div class="progress eth-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۸۵,۰۰۰ ETH</div>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">B</div>
+                        <div>
+                            <div class="token-name">BIT</div>
+                            <div class="progress-bar">
+                                <div class="progress bit-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۹۵,۰۰۰,۰۰۰ BIT</div>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="token-info">
+                        <div class="token-icon">O</div>
+                        <div>
+                            <div class="token-name">Others</div>
+                            <div class="progress-bar">
+                                <div class="progress others-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-amount">۱۵۸,۰۰۰,۰۰۰ Various</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">اسناد</div>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="protocol-item">
+                    <div class="protocol-name">اسناد رمزپول فردا</div>
+                    <div class="file-count">۴ فایل</div>
+                </div>
+                
+                <div class="protocol-item">
+                    <div class="protocol-name">Others</div>
+                    <div class="percentage">0.00%</div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="full-analytics">View full analytics →</a>
+    </div>
 
-    <div id="download" style="margin-top:18px"></div>
-
-    <footer>
-      ساخته شده با ♥ — شما می‌توانید این فایل را کپی، ویرایش و در GitHub بارگذاری کنید.
-    </footer>
-  </div>
-
-  <script>
-    function copySection(btn){
-      const section = btn.closest('.card');
-      const text = Array.from(section.querySelectorAll('.value')).map(e=>e.innerText.trim()).join('\n');
-      navigator.clipboard?.writeText(text).then(()=>{btn.innerText='کپی شد';setTimeout(()=>btn.innerText='کپی بخش',1200)}).catch(()=>alert('کپی ناموفق'));
-    }
-
-    function exportSection(id){
-      const el = document.getElementById(id);
-      if(!el) return alert('بخش پیدا نشد');
-      const parent = el.closest('article');
-      const html = `<!doctype html><html lang=\"fa\" dir=\"rtl\"><head><meta charset=\"utf-8\"><title>${el.innerText}</title></head><body> ${parent.innerHTML} </body></html>`;
-      const blob = new Blob([html],{type:'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = id + '.html'; a.click(); URL.revokeObjectURL(url);
-    }
-
-    function downloadREADME(){
-      const content = `# گواهی اثبات اندوخته رمزپول های میزبانی شده در شبکه شتات\n\n- رمزپول فردا\n- رمزپول آینده\n\n(این README از نسخه HTML تولید شده است)`;
-      const blob = new Blob([content],{type:'text/plain'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'README.md'; a.click(); URL.revokeObjectURL(url);
-    }
-  </script>
+    <script>
+        // فعال‌سازی منوی ناوبری
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
